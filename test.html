@@ -2,10 +2,22 @@
 <html>
     <head>
         <title>shitty test</title>
+        <style>
+        body {
+            background-color: #222;
+            color: #f5f5f5;
+        }
+        #chatbox {
+            position: absolute;
+            width: 50%;
+            bottom: 0;
+            margin-bottom: 10px;
+        }
+        </style>
     </head>
     <body>
         <ul id="messages"></ul>
-        <form action="">
+        <form id="chatbox" action="">
             <input id="m" autocomplete="off"><button>Send</button>
         </form>
         <script src="/socket.io/socket.io.js"></script>
@@ -16,7 +28,7 @@
                 $('form').submit(function () {
                     var msg = $('#m').val();
                     socket.emit('message', msg);
-                    $('#messages').append($('<li style="color: red">').text(msg));
+                    $('#messages').append($('<li style="color: #deadaf">').text(msg));
                     $('#m').val('');
                     return false;
                 });
